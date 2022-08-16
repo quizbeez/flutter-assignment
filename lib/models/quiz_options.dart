@@ -28,7 +28,7 @@ final questions = [
     const Option(isCorrect: false, text: 'all of it'),
     const Option(isCorrect: false, text: '50%')
   ]),
-  Question(text: 'New ?', options: [
+  Question(text: 'Second "?" ', options: [
     const Option(isCorrect: true, text: '10%'),
     const Option(isCorrect: false, text: '20%'),
     const Option(isCorrect: false, text: 'all of it'),
