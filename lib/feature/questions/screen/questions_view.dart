@@ -124,8 +124,6 @@ class _QuestionsViewState extends State<QuestionsView> {
     if (questionsBloc.selectedPage < (questions.length - 1)) {
       pageController.nextPage(
           duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-    } else {
-      print("Not allowed");
     }
   }
 }
