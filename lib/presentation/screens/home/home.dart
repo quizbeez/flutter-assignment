@@ -66,27 +66,30 @@ class _HomeScreenState extends State<HomeScreen> {
               QuestionsList(
                 questions: questions[state.question],
               ),
-              const Spacer(),
-              getActionButton(
-                onTap: () {},
-                text: AppConstants.fifty,
+              verticalSpacer(100),
+              Expanded(
+                child: ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    if(index == 3){
+                      return getActionButton(
+                        onTap: () {},
+                        text: questions[state.question].correct!,
+                      );
+                    }else{
+                      return getActionButton(
+                        onTap: () {},
+                        text: questions[state.question].incorrect![index],
+                      );
+                    }
+                  },
+                  separatorBuilder: (context, index) {
+                    return verticalSpacer(16);
+                  },
+                  itemCount: 4,
+                ),
               ),
               verticalSpacer(16),
-              getActionButton(
-                onTap: () {},
-                text: AppConstants.allOfIt,
-              ),
-              verticalSpacer(16),
-              getActionButton(
-                onTap: () {},
-                text: AppConstants.seventy,
-              ),
-              verticalSpacer(16),
-              getActionButton(
-                onTap: () {},
-                text: AppConstants.hundred,
-              ),
-              verticalSpacer(24),
             ],
           ),
         );

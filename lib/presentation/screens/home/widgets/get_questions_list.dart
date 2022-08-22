@@ -21,7 +21,7 @@ class QuestionsList extends StatelessWidget {
         horizontal: horizontalValue(16),
       ),
       child: Text(
-        questions.text ?? AppConstants.brain,
+        questions.correct ?? AppConstants.brain,
         style: TextStyle(
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w500,
