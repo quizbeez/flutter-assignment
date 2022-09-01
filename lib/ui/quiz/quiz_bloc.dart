@@ -20,9 +20,9 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
     final question = _repository.nextQuestion();
     if (question != null) {
       _question = question;
-      return emit(QuizQuestionState(question));
+      emit(QuizQuestionState(question));
     } else {
-      return emit(QuizEmptyState());
+      emit(QuizEmptyState());
     }
   }
 
@@ -34,6 +34,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
   FutureOr<void> _handleEvent(QuizEvent event, Emitter<QuizState> emit) {
     if (event is QuizSubmitAnswerEvent) {
       submitAnswer(event.answer);
+    } else if (event is QuizGoNextEvent) {
+      nextQuestion();
     }
   }
 }
@@ -57,6 +59,8 @@ class QuizAnswerState extends QuizState {
   const QuizAnswerState(question, isCorrect) : super(question: question, isCorrect: isCorrect);
 }
 
+class QuizTimerState extends QuizState {}
+
 class QuizErrorState extends QuizState {
   final Exception error;
   const QuizErrorState(this.error);
@@ -72,20 +76,4 @@ class QuizSubmitAnswerEvent extends QuizEvent {
   QuizSubmitAnswerEvent(this.answer);
 }
 
-// import 'dart:async';
-//
-// import 'package:bloc/bloc.dart';
-// import 'package:flutter_home_assignment/core/model/question.dart';
-// import 'package:meta/meta.dart';
-//
-// part 'quiz_event.dart';
-// part 'quiz_state.dart';
-//
-// class QuizBloc extends Bloc<QuizEvent, QuizState> {
-//   QuizBloc() : super(QuizEmptyState()) {
-//     on<QuizEvent>(_onQuizEvent);
-//   }
-//
-//   Future<void> _onQuizEvent(QuizEvent event, Emitter<QuizState> emit) async {
-//   }
-// }
+class QuizGoNextEvent extends QuizEvent {}

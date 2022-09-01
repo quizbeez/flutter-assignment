@@ -19,15 +19,19 @@ const timerTickMillis = 10;
 
 class TimerState extends State {
   final VoidCallback? onExpired;
-  late Timer _timer;
+  Timer? _timer;
 
   TimerState(this.onExpired);
 
   @override
   void initState() {
     super.initState();
-    _timer =
-        Timer.periodic(const Duration(milliseconds: timerTickMillis), (timer) {
+    reset();
+  }
+
+  void reset() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(milliseconds: timerTickMillis), (timer) {
       if (timer.tick > timerDurationMillis) {
         timer.cancel();
         onExpired!();
@@ -39,6 +43,6 @@ class TimerState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return LinearProgressIndicator(value: _timer.tick / timerDurationMillis);
+    return LinearProgressIndicator(value: _timer!.tick / timerDurationMillis);
   }
 }
