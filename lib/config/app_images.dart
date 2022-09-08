@@ -1,0 +1,1 @@
+const String imgQuiz = 'assets/images/quiz.json';

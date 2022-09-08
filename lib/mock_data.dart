@@ -15,7 +15,7 @@ const kQuestions = [
       "Taking a screenshot of an NFT"
     ],
     "text":
-        "Which of the following is an example of a trustless transaction that takes place on Web 3.0?",
+    "Which of the following is an example of a trustless transaction that takes place on Web 3.0?",
     "correct": "Sending Bitcoin to someone else"
   }
 ];
