@@ -1,21 +1,23 @@
 const kQuestions = [
   {
-    "incorrect": [
+    "options": [
       "Machine learning causes global warming",
       "Unsecure networks lead to terrorist attacks",
-      "NFTs contribute to poaching of animals"
+      "Blockchains can use a lot of energy",
+      "NFTs contribute to poaching of animals",
     ],
-    "text": "What is one potential environmental concern about Web 3.0?",
-    "correct": "Blockchains can use a lot of energy"
+    "question": "What is one potential environmental concern about Web 3.0?",
+    "answer": "2"
   },
   {
-    "incorrect": [
+    "options": [
       "Paying someone through PayPal",
+      "Sending Bitcoin to someone else",
       "Buying something on Amazon.com",
-      "Taking a screenshot of an NFT"
+      "Taking a screenshot of an NFT",
     ],
-    "text":
+    "question":
         "Which of the following is an example of a trustless transaction that takes place on Web 3.0?",
-    "correct": "Sending Bitcoin to someone else"
+    "answer": "1"
   }
 ];
