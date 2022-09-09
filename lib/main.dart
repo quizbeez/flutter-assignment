@@ -1,42 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_home_assignment/quizbeezui.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'CubitClass.dart';
+import 'package:flutter_home_assignment/res/app_colors.dart';
+import 'package:flutter_home_assignment/res/text_styles.dart';
+import 'package:flutter_home_assignment/views/questions/questions_view.dart';
 
-void main() {
+void main(){
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CartBloc()),
-      ],
-      child: ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context , child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'First Method',
-            // You can use the library anywhere in the app even in theme
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-              textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+    return MaterialApp(
+      title: "deniz-123",
+      home: Builder(
+        builder: (context) {
+          return Scaffold(
+            body: Center(
+              child: InkWell(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const QuestionsView())),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: AppColors.purple,
+                  ),
+                  child: Text(
+                    "Questions",
+                    style: kAnswerTextStyle,
+                  ),
+                ),
+              ),
             ),
-            home: child,
           );
-        },
-        child: const quizbeez(),
+        }
       ),
     );
   }
 }
-
