@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_home_assignment/quizbeezui.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
 import 'CubitClass.dart';
 
 void main() {
