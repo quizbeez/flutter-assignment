@@ -39,18 +39,16 @@ class HomeScreen extends StatelessWidget {
                         goToNextQuestion(context, false);
                       }
                     },
-                    child: Column(children: [
-                      BlocBuilder<HomeCubit, HomeState>(
-                        builder: (context, state) {
-                          if(state is QuestionCompleted){
-                            BlocProvider.of<TimerCubit>(context).stopTimer();
-                            return const ResultView();
-                          }else {
-                            return const QuestionView();
-                          }
-                        },
-                      ),
-                    ]),
+                    child: BlocBuilder<HomeCubit, HomeState>(
+                      builder: (context, state) {
+                        if(state is QuestionCompleted){
+                          BlocProvider.of<TimerCubit>(context).stopTimer();
+                          return const ResultView();
+                        }else {
+                          return const QuestionView();
+                        }
+                      },
+                    ),
                   ),
                 ),
               ],
