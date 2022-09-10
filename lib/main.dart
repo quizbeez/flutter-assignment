@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_home_assignment/ui/mainQuizScreen.dart';
-
+import 'package:flutter_home_assignment/ui/uiscreens/mainQuizScreen.dart';
 void main() {
   runApp(const MyApp());
 }
